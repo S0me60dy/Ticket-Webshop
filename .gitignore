@@ -1,0 +1,6 @@
+
+#dotenv files
+.env
+
+#config
+config.php
