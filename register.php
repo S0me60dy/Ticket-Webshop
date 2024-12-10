@@ -2,19 +2,28 @@
     include("./db.php");
     echo "<h2>Register Page</h2>";
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']?>">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        
+        <label for="birthdate">Birth Date:</label><br>
+        <input type="date" id="birthdate" name="birthdate" required><br>
+        
+        <label for="pass">Password:</label><br>
+        <input type="password" name="pass" id="pass" required><br>
+        
+        <input type="submit" name="submit" value="Register">
+    </form>
 
-<form method="POST" action="./register.php">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" required><br>
-    
-    <label for="birthdate">Birth Date:</label><br>
-    <input type="date" id="birthdate" name="birthdate" required><br>
-    
-    <label for="pass">Password:</label><br>
-    <input type="password" name="pass" id="pass" required><br>
-    
-    <input type="submit" name="submit" value="Register">
-</form>
+
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
@@ -37,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "<p style='color: green;'>Registration successful! Your data has been processed.</p>";
             mysqli_stmt_close($stmt);
             mysqli_close($link);
-            header("Location: index.php");
+            header("Location: register_login.php");
             exit();
         } else {
             echo "<p style='color: red;'>Error during registration: " . mysqli_error($link) . "</p>";
@@ -47,3 +56,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+</body>
+</html>

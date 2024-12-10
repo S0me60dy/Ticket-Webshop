@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Main Page</h2>
+    <h2>ADMIN DASHBOARD PAGE</h2>
 </body>
 </html>
