@@ -1,5 +1,6 @@
 <?php
     include("./db.php");
+    session_start();
     echo "<h2>Register Page</h2>";
 ?>
 <!DOCTYPE html>
@@ -37,6 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $name = htmlspecialchars($name);
         $birthdate = htmlspecialchars($birthdate);
         $hashed_pwd = password_hash($password, PASSWORD_DEFAULT);
+        $_SESSION['name'] = $name;
+        $_SESSION['permissions'] = 'normal';
 
         $query_customers = "INSERT INTO Customers (Name, Date_of_Birth, Password, Permissions, Active)    
                     VALUES (?, ?, ?, 'normal', '1')";
@@ -46,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "<p style='color: green;'>Registration successful! Your data has been processed.</p>";
             mysqli_stmt_close($stmt);
             mysqli_close($link);
-            header("Location: register_login.php");
+            header("Location: index.php");
             exit();
         } else {
             echo "<p style='color: red;'>Error during registration: " . mysqli_error($link) . "</p>";

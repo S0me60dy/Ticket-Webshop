@@ -35,11 +35,7 @@
                 $_SESSION['customer_ID'] = $customer_ID;
                 $_SESSION['permissions'] = $permissions;
                 $_SESSION['name'] = $name;
-                if($permissions === 'admin'){
-                    header("Location: admin/admin_dashboard.php");
-                } else {
-                    header("Location: index.php");
-                }
+                header("Location: index.php");
                 exit();
             } else {
                 echo("<p style='color:red;'>The username or password are incorrect!(Not so aggressive, but still passive)");

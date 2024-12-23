@@ -2,7 +2,7 @@
     $config = include "./config.php";
 
     // Validate config keys
-    $db_host = $config['DATABASE_HOSTNAME'] ?? die("DATABASE_HOST not defined in config.php");
+    $db_host = $config['DATABASE_HOSTNAME'] ?? die("DATABASE_HOSTNAME not defined in config.php");
     $db_user = $config['DATABASE_USERNAME'] ?? die("DATABASE_USERNAME not defined in config.php");
     $db_pass = $config['DATABASE_PASSWORD'] ?? die("DATABASE_PASSWORD not defined in config.php");
     $db_name = $config['DATABASE_NAME'] ?? die("DATABASE_NAME not defined in config.php");
